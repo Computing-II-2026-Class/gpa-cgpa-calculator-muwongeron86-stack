@@ -21,25 +21,25 @@ return "F";
 }
 int main(void) {
 
- char *sem1_codes[] = {"TEMB 1101", "TEMB 1102", "TEMB 1103", "TEMB 1104", 
+      char *sem1_codes[] = {"TEMB 1101", "TEMB 1102", "TEMB 1103", "TEMB 1104", 
                           "TEMB 1105", "TEMB 1106", "TEMB 1107", "TEMB 1108"};
     char *sem2_codes[] = {"TEMB 1201", "TEMB 1202", "TEMB 1203", "TEMB 1204", 
                           "TEMB 1205", "TEMB 1206", "TEMB 1207", "TEMB 1208"};
 
     
-    int sem1_units[] = {4, 3, 3, 3, 3, 3, 2, 3}; 
-    int sem2_units[] = {4, 3, 3, 3, 3, 3, 3, 3}; 
+    int sem1_units[] = {4, 3, 3, 3, 3, 3, 2, 3}; // 1101 is 4, 1107 is 2
+    int sem2_units[] = {4, 3, 3, 3, 3, 3, 3, 3}; // 1201 is 4
 
     float sem1_scores[8], sem2_scores[8];
     float total_weighted1 = 0, total_weighted2 = 0;
     int total_credits1 = 0, total_credits2 = 0;
 
-    printf("Enter the 16 scores in the following order:\n\n");
-    printf("Semester I\n");
+    
+    printf(" Semester I:\n");
     for(int i = 0; i < 8; i++) {
-        printf("%s: ", i + 1, sem1_codes[i]);
+        printf("%s: ", sem1_codes[i]);
         if (scanf("%f", &sem1_scores[i]) != 1 || sem1_scores[i] < 0 || sem1_scores[i] > 100) {
-            printf("Invalid score entered\n"); 
+            printf("Invalid score entered\n");
             return 0;
         }
         total_weighted1 += getGradePoint(sem1_scores[i]) * sem1_units[i];
@@ -47,9 +47,9 @@ int main(void) {
     }
 
     
-    printf("\nSemester II\n");
+    printf(" Semester II:\n");  
     for(int i = 0; i < 8; i++) {
-        printf("%s: ", i + 9, sem2_codes[i]);
+        printf("%s: ", sem2_codes[i]);
         if (scanf("%f", &sem2_scores[i]) != 1 || sem2_scores[i] < 0 || sem2_scores[i] > 100) {
             printf("Invalid score entered\n");
             return 0;
@@ -57,6 +57,7 @@ int main(void) {
         total_weighted2 += getGradePoint(sem2_scores[i]) * sem2_units[i];
         total_credits2 += sem2_units[i];
     }
+
     float gpa1 = total_weighted1 / total_credits1;
     float gpa2 = total_weighted2 / total_credits2;
     float cgpa = (total_weighted1 + total_weighted2) / (total_credits1 + total_credits2);
@@ -66,30 +67,29 @@ int main(void) {
     printf("------------------------------------------------------------\n");
     
     for(int i = 0; i < 8; i++) {
-         printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
-               sem1_codes[i], sem1_scores[i], 
-               getGrade(sem1_scores[i]), 
-               getGradePoint(sem1_scores[i]), 
-               sem1_units[i], 
-               getGradePoint(sem1_scores[i]) * sem1_units[i]);
+        printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
+               sem1_codes[i], sem1_scores[i], getGrade(sem1_scores[i]), 
+               getGradePoint(sem1_scores[i]), sem1_units[i], getGradePoint(sem1_scores[i]) * sem1_units[i]);
     }
     for(int i = 0; i < 8; i++) {
-         printf("%-12s %-8.1f %-8c %-8.1f %-8.0f %-15.1f\n", 
-               sem2_codes[i], sem2_scores[i], 
-               getGrade(sem2_scores[i]), 
-               getGradePoint(sem2_scores[i]), 
-               sem2_units[i], 
-               getGradePoint(sem2_scores[i]) * sem2_units[i]);
+        printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
+               sem2_codes[i], sem2_scores[i], getGrade(sem2_scores[i]), 
+               getGradePoint(sem2_scores[i]), sem2_units[i], getGradePoint(sem2_scores[i]) * sem2_units[i]);
     }
- printf("\nSemester I GPA: %.2f\n", gpa1);
+
+    
+    printf("\nSemester I GPA: %.2f\n", gpa1);
     printf("Semester II GPA: %.2f\n", gpa2);
     printf("CGPA: %.2f\n", cgpa);
-     printf("Classification: ");
+    
+    printf("Classification: ");
     if (cgpa >= 4.40) printf("First Class\n");
     else if (cgpa >= 3.60) printf("Second Class Upper\n");
     else if (cgpa >= 2.80) printf("Second Class Lower\n");
     else if (cgpa >= 2.00) printf("Pass\n");
-    else printf("Fail\n"); 
+    else printf("Fail\n");
+
+ 
  
     /* Declare variables here */
 
