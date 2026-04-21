@@ -5,8 +5,20 @@ Registration Number: 25/U/BIE/01401/PE
 
 #include <stdio.h>
 
-float getGradePoint(float score);
-char* getGrade(float score);
+float getGradePoint(float score){
+ if (score>= 80) return 5.0;
+ if (score>=70) return 4.0;
+ if (score>=60) return 3.0;
+ if (score>=50) return 2.0;
+ return 0.0;
+}
+char* getGrade(float score){
+if (score>=80) return "A";
+if(score>=70) return "B";
+if (score>=60) return "C";
+if (score>=50) return "D";
+return "F";
+}
 int main(void) {
 
  char *sem1_codes[] = {"TEMB 1101", "TEMB 1102", "TEMB 1103", "TEMB 1104", 
