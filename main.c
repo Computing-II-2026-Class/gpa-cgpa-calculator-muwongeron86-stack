@@ -9,12 +9,7 @@ float getGradePoint(float score);
 char* getGrade(float score);
 int main(void) {
 
-
-
-
-
-    
-    char *sem1_codes[] = {"TEMB 1101", "TEMB 1102", "TEMB 1103", "TEMB 1104", 
+ char *sem1_codes[] = {"TEMB 1101", "TEMB 1102", "TEMB 1103", "TEMB 1104", 
                           "TEMB 1105", "TEMB 1106", "TEMB 1107", "TEMB 1108"};
     char *sem2_codes[] = {"TEMB 1201", "TEMB 1202", "TEMB 1203", "TEMB 1204", 
                           "TEMB 1205", "TEMB 1206", "TEMB 1207", "TEMB 1208"};
@@ -34,7 +29,7 @@ int main(void) {
     for(int i = 0; i < 8; i++) {
         printf("%d. %s: ", i + 1, sem1_codes[i]);
         if (scanf("%f", &sem1_scores[i]) != 1 || sem1_scores[i] < 0 || sem1_scores[i] > 100) {
-            printf("Invalid score entered\n"); // Termination rule
+            printf("Invalid score entered\n"); 
             return 0;
         }
         total_weighted1 += getGradePoint(sem1_scores[i]) * sem1_units[i];
@@ -80,7 +75,7 @@ int main(void) {
                getGradePoint(sem2_scores[i]) * sem2_units[i]);
     }
 
-    /
+    
     printf("\nSemester I GPA: %.2f\n", gpa1);
     printf("Semester II GPA: %.2f\n", gpa2);
     printf("CGPA: %.2f\n", cgpa);
