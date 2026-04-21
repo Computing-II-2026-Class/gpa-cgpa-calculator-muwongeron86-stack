@@ -23,8 +23,6 @@ int main(void) {
     int total_credits1 = 0, total_credits2 = 0;
 
     printf("Enter the 16 scores in the following order:\n\n");
-
-    
     printf("Semester I\n");
     for(int i = 0; i < 8; i++) {
         printf("%d. %s: ", i + 1, sem1_codes[i]);
