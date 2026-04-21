@@ -5,14 +5,14 @@ Registration Number: 25/U/BIE/01401/PE
 
 #include <stdio.h>
 
-float getGradePoint(float score){
+float getGradePoint(float score) {
  if (score>= 80) return 5.0;
  if (score>=70) return 4.0;
  if (score>=60) return 3.0;
  if (score>=50) return 2.0;
  return 0.0;
 }
-char* getGrade(float score){
+char* getGrade(float score) {
 if (score>=80) return "A";
 if(score>=70) return "B";
 if (score>=60) return "C";
@@ -37,7 +37,7 @@ int main(void) {
     printf("Enter the 16 scores in the following order:\n\n");
     printf("Semester I\n");
     for(int i = 0; i < 8; i++) {
-        printf("%d. %s: ", i + 1, sem1_codes[i]);
+        printf("%s: ", i + 1, sem1_codes[i]);
         if (scanf("%f", &sem1_scores[i]) != 1 || sem1_scores[i] < 0 || sem1_scores[i] > 100) {
             printf("Invalid score entered\n"); 
             return 0;
@@ -49,7 +49,7 @@ int main(void) {
     
     printf("\nSemester II\n");
     for(int i = 0; i < 8; i++) {
-        printf("%d. %s: ", i + 9, sem2_codes[i]);
+        printf("%s: ", i + 9, sem2_codes[i]);
         if (scanf("%f", &sem2_scores[i]) != 1 || sem2_scores[i] < 0 || sem2_scores[i] > 100) {
             printf("Invalid score entered\n");
             return 0;
@@ -90,23 +90,7 @@ int main(void) {
     else if (cgpa >= 2.80) printf("Second Class Lower\n");
     else if (cgpa >= 2.00) printf("Pass\n");
     else printf("Fail\n"); 
-    return 0;
-}
-float getGradePoint(float score) {
-    if (score >= 80) return 5.0;
-    if (score >= 70) return 4.0;
-    if (score >= 60) return 3.0;
-    if (score >= 50) return 2.0;
-    return 0.0;
-}
-
-char* getGrade(float score) {
-    if (score >= 80) return "A";
-    if (score >= 70) return "B";
-    if (score >= 60) return "C";
-    if (score >= 50) return "D";
-    return "F";
-}
+ 
     /* Declare variables here */
 
     /* Read 16 scores */
