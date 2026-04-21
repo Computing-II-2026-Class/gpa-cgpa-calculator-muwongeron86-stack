@@ -74,7 +74,7 @@ int main(void) {
                getGradePoint(sem1_scores[i]) * sem1_units[i]);
     }
     for(int i = 0; i < 8; i++) {
-         printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
+         printf("%-12s %-8.1f %-8c %-8.1f %-8.0f %-15.1f\n", 
                sem2_codes[i], sem2_scores[i], 
                getGrade(sem2_scores[i]), 
                getGradePoint(sem2_scores[i]), 
