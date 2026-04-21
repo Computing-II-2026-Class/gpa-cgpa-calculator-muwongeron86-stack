@@ -45,7 +45,6 @@ int main(void) {
         total_weighted2 += getGradePoint(sem2_scores[i]) * sem2_units[i];
         total_credits2 += sem2_units[i];
     }
-
     float gpa1 = total_weighted1 / total_credits1;
     float gpa2 = total_weighted2 / total_credits2;
     float cgpa = (total_weighted1 + total_weighted2) / (total_credits1 + total_credits2);
@@ -55,8 +54,7 @@ int main(void) {
     printf("------------------------------------------------------------\n");
     
     for(int i = 0; i < 8; i++) {
-        
-        printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
+         printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
                sem1_codes[i], sem1_scores[i], 
                getGrade(sem1_scores[i]), 
                getGradePoint(sem1_scores[i]), 
@@ -64,33 +62,24 @@ int main(void) {
                getGradePoint(sem1_scores[i]) * sem1_units[i]);
     }
     for(int i = 0; i < 8; i++) {
-        
-        printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
+         printf("%-12s %-8.1f %-8s %-8.1f %-8d %-15.1f\n", 
                sem2_codes[i], sem2_scores[i], 
                getGrade(sem2_scores[i]), 
                getGradePoint(sem2_scores[i]), 
                sem2_units[i], 
                getGradePoint(sem2_scores[i]) * sem2_units[i]);
     }
-
-    
-    printf("\nSemester I GPA: %.2f\n", gpa1);
+ printf("\nSemester I GPA: %.2f\n", gpa1);
     printf("Semester II GPA: %.2f\n", gpa2);
     printf("CGPA: %.2f\n", cgpa);
-    
-    printf("Classification: ");
+     printf("Classification: ");
     if (cgpa >= 4.40) printf("First Class\n");
     else if (cgpa >= 3.60) printf("Second Class Upper\n");
     else if (cgpa >= 2.80) printf("Second Class Lower\n");
     else if (cgpa >= 2.00) printf("Pass\n");
     else printf("Fail\n"); 
-
     return 0;
 }
-
-
-
-
 float getGradePoint(float score) {
     if (score >= 80) return 5.0;
     if (score >= 70) return 4.0;
